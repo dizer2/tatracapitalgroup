@@ -1,8 +1,8 @@
 
 export default function Home() {
   return (
-    <div>
-
+    <div> 
+      <p className="text-storm"></p>
     </div>
   );
 }
