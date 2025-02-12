@@ -15,6 +15,10 @@ export default {
         mainS: "#080063"
       },
     },
+    fontFamily: {
+      bebas: ['BebasKai', 'sans-serif'],
+      avenir: ['Avenir', 'sans-serif'], 
+    }
   },
   plugins: [],
 } satisfies Config;

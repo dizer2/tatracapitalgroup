@@ -2,7 +2,8 @@
 export default function Home() {
   return (
     <div> 
-      <p className="text-storm"></p>
+      <p className="font-bebas">sdfsdfd</p>
+      <p>df</p>
     </div>
   );
 }

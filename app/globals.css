@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'BebasKai';
+  src: url('/fonts/BebasKai.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/Avenir-Light.otf') format('opentype'),
+       url('/fonts/Avenir-Book.otf') format('opentype'),
+       url('/fonts/Avenir-Roman.otf') format('opentype'),
+       url('/fonts/Avenir-Medium.otf') format('opentype'),
+       url('/fonts/Avenir-Heavy.otf') format('opentype');
+  font-weight: 300, 400, 500, 600 700;
+  font-style: normal;
+}
+
 :root {
   --background: #000000;
   --foreground: #ffffff;
