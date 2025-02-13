@@ -1,24 +1,36 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        darkS: "#333",
-        mainS: "#080063"
-      },
-    },
-    fontFamily: {
-      bebas: ['BebasKai', 'sans-serif'],
-      avenir: ['Avenir', 'sans-serif'], 
-    }
+  	extend: {
+  		colors: {
+  			background: 'var(--background)',
+  			foreground: 'var(--foreground)',
+  			darkS: '#333',
+  			mainS: '#080063'
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	},
+  	fontFamily: {
+  		bebas: [
+  			'BebasKai',
+  			'sans-serif'
+  		],
+  		avenir: [
+  			'Avenir',
+  			'sans-serif'
+  		]
+  	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;

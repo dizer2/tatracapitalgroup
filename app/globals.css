@@ -16,7 +16,7 @@
        url('/fonts/Avenir-Roman.otf') format('opentype'),
        url('/fonts/Avenir-Medium.otf') format('opentype'),
        url('/fonts/Avenir-Heavy.otf') format('opentype');
-  font-weight: 300, 400, 500, 600 700;
+  font-weight: 300, 400, 500, 600, 700;
   font-style: normal;
 }
 
@@ -28,4 +28,10 @@
 body {
   color: var(--foreground);
   background: var(--background);
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }
