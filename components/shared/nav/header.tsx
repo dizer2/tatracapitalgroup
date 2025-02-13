@@ -28,7 +28,6 @@ export default function Header() {
     <div className="w-full h-24 fixed backdrop-blur-md bg-white bg-opacity-5 2xl:px-20 lg:px-16 md:px-10 px-10">
       <div className="w-full h-full flex items-center justify-between relative">
         <div className="flex text-sm font-medium z-20 lg:gap-12 md:gap-8 gap-4">
-          
           <Link href="/">{getTranslation('nav_1')}</Link>
           <Link href="/">{getTranslation('nav_2')}</Link>
           <Link href="/">{getTranslation('nav_3')}</Link>

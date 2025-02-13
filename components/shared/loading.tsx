@@ -1,9 +1,9 @@
 'use client'
-import { useLanguage } from '@/context/LanguageContext'
+// import { useLanguage } from '@/context/LanguageContext'
 import React, { Fragment } from 'react'
 
 export default function Loading() {
-	const { loading } = useLanguage()
+	// const { loading } = useLanguage()
 	return (
 		<Fragment>
 		{/* {loading && (
