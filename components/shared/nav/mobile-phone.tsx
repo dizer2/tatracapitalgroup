@@ -33,7 +33,7 @@ export default function MobilePhone() {
 
 	return (
 		<div
-			className={`block md:hidden w-full fixed bg-opacity-5 transition-all duration-700 ${
+			className={`block md:hidden w-full fixed bg-opacity-5 transition-all duration-700 z-50 ${
 				isOpen
 					? 'h-screen backdrop-blur-lg bg-black'
 					: 'h-24 backdrop-blur-md bg-white'

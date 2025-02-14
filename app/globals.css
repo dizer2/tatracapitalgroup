@@ -26,8 +26,15 @@
 }
 
 body {
+  width: 100vw;
   color: var(--foreground);
   background: var(--background);
+  overflow-x: hidden;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 @layer base {
