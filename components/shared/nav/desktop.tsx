@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Nav from './nav'
 import Socials from './socials'
+import Link from 'next/link'
 
 export default function Header() {
 	const [isClient, setIsClient] = useState(false)
@@ -23,6 +24,7 @@ export default function Header() {
 					<Nav />
 				</div>
 				<div className='w-full absolute flex justify-center z-10'>
+					<Link	href='/'>
 					<Image
 						width={60}
 						height={50}
@@ -30,6 +32,8 @@ export default function Header() {
 						alt='logo'
 						className='w-14 lg:w-16'
 					/>
+					</Link>
+					
 				</div>
 				<div className='flex items-center lg:gap-12 md:gap-8 gap-4 z-20'>
 					<div className='flex lg:gap-5 gap-2'>

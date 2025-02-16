@@ -14,7 +14,7 @@ export default function Nav() {
 	return (
 		<>
 			<Link href="/">{getTranslation('nav_1')}</Link>
-			<Link href="/">{getTranslation('nav_2')}</Link>
+			<Link href="/career">{getTranslation('nav_2')}</Link>
 			<Link href="/">{getTranslation('nav_3')}</Link>
 		</>
 			 
