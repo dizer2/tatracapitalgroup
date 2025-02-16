@@ -17,7 +17,7 @@ export default function Header() {
 		return null
 	}
 	return (
-		<div className='hidden md:block w-full h-24 fixed backdrop-blur-md bg-white bg-opacity-5 2xl:px-20 lg:px-16 md:px-10 px-10 z-50'>
+		<div className='hidden md:block w-full h-24 fixed backdrop-blur-lg bg-black bg-opacity-10 2xl:px-20 lg:px-16 md:px-10 px-10 z-50'>
 			<div className='w-full h-full flex items-center justify-between relative'>
 				<div className='flex text-sm font-medium z-20 lg:gap-12 md:gap-8 gap-4'>
 					<Nav />

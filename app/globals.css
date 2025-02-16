@@ -42,3 +42,29 @@ html {
     --radius: 0.5rem;
   }
 }
+
+.sroll__bar::-webkit-scrollbar {
+  width: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.sroll__bar::-webkit-scrollbar-track {
+  background: #00000000;
+  transition: 0.5s;
+  cursor: pointer;
+  
+}
+
+/* Handle */
+.sroll__bar::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+.sroll__bar::-webkit-scrollbar-thumb:hover {
+  background: #343434;
+  transition: 0.5s;
+}
