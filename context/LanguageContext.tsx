@@ -2,14 +2,13 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Translation } from '@prisma/client';
 import useGetTranslations from '@/hooks/getGetTranslations';
 
 interface LanguageContextProps {
   selectedLanguage: string;
   setSelectedLanguage: (lang: string) => void;
-  translations: Translation[];
   loading: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error: any;
 }
 
@@ -27,11 +26,11 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     localStorage.setItem('selectedLanguage', selectedLanguage);
   }, [selectedLanguage]);
 
-  const { translations, loading, error } = useGetTranslations(selectedLanguage);
+  const { loading, error } = useGetTranslations(selectedLanguage);
 
   return (
     <LanguageContext.Provider
-      value={{ selectedLanguage, setSelectedLanguage, translations, loading, error }}
+      value={{ selectedLanguage, setSelectedLanguage, loading, error }}
     >
       {children}
     </LanguageContext.Provider>

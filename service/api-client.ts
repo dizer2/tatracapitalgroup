@@ -1,7 +1,8 @@
-import * as translation from "./translation";
 import * as admin from "./admin";
+import * as industries from "./industries";
+
 
 export const Api = {
-	translation,
-	admin
+	admin,
+	industries
 }

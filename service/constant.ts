@@ -1,4 +1,5 @@
 export enum ApiRoutes {
 	TRANSLATION_API = 'translation',
-	EMAIL_API = 'email'
+	EMAIL_API = 'email',
+	INDUSTRIES_API = 'industries'
 }
