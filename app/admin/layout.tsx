@@ -7,7 +7,6 @@ export default function layout({
 }>) {
   return (
    <div>
-		<p>Admin ALYOUR</p>
 		{children}
 	 </div>
   );
