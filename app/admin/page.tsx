@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { useRouter } from 'next/navigation'
 import { handleSubmit } from '@/hooks/sendEmail'
 import { generatePasswordFunction } from '@/utils/generatePasswordFunction'
+import Cookies from 'js-cookie'
 
 export default function Page() {
   const [generatedPassword, setGeneratedPassword] = useState('') 
@@ -26,7 +27,9 @@ export default function Page() {
     e.preventDefault()
     if (generatedPassword === password) {
       setMessage('Password Matched!')
+      Cookies.set('isAuthenticated', 'true', { expires: 1 });
       router.push('/admin/dashboard')
+
     } else {
       setMessage('Password does not match!')
     }
