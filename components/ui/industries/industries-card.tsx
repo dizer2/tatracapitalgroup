@@ -1,11 +1,8 @@
+import { IndustriesCardProps } from '@/types/industries'
 import Image from 'next/image'
 import React from 'react'
 
-interface IndustriesCardProps {
-	title: string
-	image: string
-	description: string
-}
+
 
 export default function IndustriesCard({
 	title,

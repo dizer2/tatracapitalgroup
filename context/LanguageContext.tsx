@@ -2,14 +2,11 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import useGetTranslations from '@/hooks/getGetTranslations';
 
 interface LanguageContextProps {
   selectedLanguage: string;
   setSelectedLanguage: (lang: string) => void;
-  loading: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error: any;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
@@ -26,11 +23,10 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     localStorage.setItem('selectedLanguage', selectedLanguage);
   }, [selectedLanguage]);
 
-  const { loading, error } = useGetTranslations(selectedLanguage);
 
   return (
     <LanguageContext.Provider
-      value={{ selectedLanguage, setSelectedLanguage, loading, error }}
+      value={{ selectedLanguage, setSelectedLanguage}}
     >
       {children}
     </LanguageContext.Provider>

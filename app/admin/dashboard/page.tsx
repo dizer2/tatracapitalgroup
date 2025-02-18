@@ -3,8 +3,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Image from 'next/image'
 import React from 'react'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import IndustriesCard from '@/components/pages/admin/industries-card'
+import IndustriesSection from '@/components/pages/admin/industreis/IndustriesSection'
+import LanguageSelect from '@/components/ui/language-select'
 
 export default function page() {
 	return (
@@ -81,44 +81,12 @@ export default function page() {
 				</div>
 			</div>
 
-
 			<div className='flex flex-col justify-center mt-20'>
-			<Tabs defaultValue='eng' className='flex justify-center'>
-				<TabsList>
-					<TabsTrigger value='eng'>
-							<Image
-							src={'/images/assets/landing/eng-flag.svg'}
-							width={24}
-							height={24}
-							alt="flag"
-						/>
-					</TabsTrigger>
-					<TabsTrigger value='svk'>
-					<Image
-							src={'/images/assets/landing/svk-flag.svg'}
-							width={24}
-							height={24}
-							alt="flag"
-						/>
-					</TabsTrigger>
-				</TabsList>
-			</Tabs>
-
-			<div className='mt-6'>
-			<h3 className='font-bebas text-8xl mb-10 text-white text-center'>
-				Industry Experts
-
-			</h3>
-				<div className='w-full p-10 bg-darkS rounded-3xl flex justify-center gap-6'>
-					
-				{Array.from({ length: 3 }).map((_, i) => (
-					<IndustriesCard key={i} />
-				))}
-					
+				<div className='flex justify-center items-center'>
+				<LanguageSelect />
 				</div>
+				<IndustriesSection />
 			</div>
-			</div>
-
 		</div>
 	)
 }

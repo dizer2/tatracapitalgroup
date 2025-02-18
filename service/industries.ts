@@ -8,3 +8,14 @@ export const getAllIndustries = async (lang: string): Promise<Industry[]> => {
 
 	return data;
 }
+
+export const getIndustryById = async (id: string, lang: string, title: string, description: string, image: string): Promise<Industry> => {
+	const { data } = await axiosInstance.put<Industry>(`${ApiRoutes.INDUSTRIES_ADMIN_API}?lang=${lang}`, {
+		title,
+		description,
+		image,
+		id
+	})
+
+	return data;
+}

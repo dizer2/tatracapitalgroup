@@ -14,10 +14,3 @@ export default function Nav() {
 }
 
 
-// const result = industriesArray.map(industry => {
-// 	const translation = industry.translations.find(t => t.lang === lang);
-// 	return {
-// 		image: industry.image,
-// 		...translation,
-// 	};
-// });
