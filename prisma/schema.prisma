@@ -1,5 +1,3 @@
-// schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -21,6 +19,54 @@ model Industry {
   image        String
   createdAt    DateTime              @default(now())
   updatedAt    DateTime              @updatedAt
+}
+
+type AboutUsTranslation {
+  lang        String
+  title1       String
+  description1 String
+  title2       String
+  description2 String
+  title3       String
+  description3 String
+}
+
+model AboutUs {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  image       String
+  translations AboutUsTranslation[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+type TeamTranslation {
+  lang        String
+  position    String
+  description String
+}
+
+model Team {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  image       String
+  translations TeamTranslation[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+type TeamSectionTranslation {
+  lang        String
+  title       String
+  position    String
+  buttonText  String
+}
+
+model TeamSection {
+  id           String                  @id @default(auto()) @map("_id") @db.ObjectId
+  image        String
+  translations TeamSectionTranslation[]
+  createdAt    DateTime                @default(now())
+  updatedAt    DateTime                @updatedAt
 }
 
 type WorkPostTranslation {

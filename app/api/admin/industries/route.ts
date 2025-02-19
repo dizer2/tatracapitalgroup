@@ -9,7 +9,6 @@ export async function PUT(req: Request) {
 
   try {
     const { title, description, id, image } = await req.json();
-    console.log('Received data:', title, description, image, id);
 
     if (!id) {
       return NextResponse.json({ error: 'Industry ID is required' }, { status: 400 });
@@ -25,15 +24,11 @@ export async function PUT(req: Request) {
       where: { id },
     });
 
-    console.log('Industry:', industry);
-
     if (!industry) {
       return NextResponse.json({ error: 'Industry not found' }, { status: 404 });
     }
 
     const existingTranslations = industry.translations || [];
-
-
     const translationIndex = existingTranslations.findIndex((t) => t.lang === lang);
 
     let updatedTranslations;
@@ -47,7 +42,6 @@ export async function PUT(req: Request) {
       updatedTranslations = [...existingTranslations, { lang, title, description }];
     }
 
-    // Ensure the image is only updated if a new image is provided
     const updatedIndustry = await prisma.industry.update({
       where: { id },
       data: {

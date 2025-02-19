@@ -3,8 +3,13 @@ import TeamCard from '@/components/ui/team-card'
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
+import { useLanguage } from '@/context/LanguageContext'
+import { useTeam } from '@/hooks/getTeam'
 
 export default function TeamPage() {
+	const { selectedLanguage } = useLanguage();
+	const { team, loading } = useTeam(selectedLanguage);
+
 	return (
 		<>
 			<div className='2xl:px-20 lg:px-16 md:px-0'>

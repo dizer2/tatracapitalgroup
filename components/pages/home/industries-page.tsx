@@ -8,8 +8,6 @@ export default function IndustriesPage() {
 	const { selectedLanguage } = useLanguage()
 	const { loading, industries } = useIndustries(selectedLanguage)
 
-	console.log(industries)
-	console.log(selectedLanguage)
 
 	return (
 		<div className='w-full mb-40 2xl:px-20 lg:px-16 md:px-10 px-10'>

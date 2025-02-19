@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import IndustriesSection from '@/components/pages/admin/industreis/IndustriesSection'
 import LanguageSelect from '@/components/ui/language-select'
+import AboutUs from '@/components/pages/admin/about/aboutUs'
 
 export default function page() {
 	return (
@@ -86,6 +87,7 @@ export default function page() {
 				<LanguageSelect />
 				</div>
 				<IndustriesSection />
+				<AboutUs />
 			</div>
 		</div>
 	)
