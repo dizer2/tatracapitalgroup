@@ -6,8 +6,6 @@ import Image from 'next/image'
 export default function AboutUs() {
 	const { selectedLanguage } = useLanguage()
 	const { aboutUs, loading } = useAbout(selectedLanguage)
-	console.log(aboutUs)
-
 
 	return (
 		<div className='w-full h-screen2xl:px-20 lg:px-16 md:px-10 px-10'>

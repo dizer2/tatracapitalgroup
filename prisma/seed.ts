@@ -100,97 +100,101 @@ const prisma = new PrismaClient();
 //   }
 // }
 
-async function seedTeam() {
-  const team = [
-    {
-      translations: [
-        {
-          lang: "en",
-          position: "CEO",
-          description:
-            "I’m Noah Stern, COO of Tatra Capital Group. I focus on business development, operations, and strategic investments in food, manufacturing, and real estate. My role involves structuring deals, optimizing operations, and ensuring long-term growth. I appreciate working with dedicated, humble business owners who are passionate about what they do. My goal is to help them take the next step—whether through strategy, guidance, or new opportunities that drive real growth.",
-        },
-        {
-          lang: "sk",
-          position: "CEO",
-          description: "Noah Stern, COO spoločnosti Tatra Capital Group. Zameriavam sa na rozvoj podnikania, operácie a strategické investície v oblasti potravinárstva, výroby a nehnuteľností. Moja úloha zahŕňa štruktúrovanie obchodov, optimalizáciu operácií a zabezpečenie dlhodobého rastu. Rád spolupracujem s oddanými a pokornými podnikateľmi, ktorí sú vášniví v tom, čo robia. Mojím cieľom je pomôcť im urobiť ďalší krok – či už prostredníctvom stratégie, poradenstva alebo nových príležitostí, ktoré podporujú skutočný rast."
-        }
-      ],
-      name: "Noah Stern",
-      image: "/images/assets/landing/team/ceo.png",
-    }, 
-    {
-      translations: [
-        {
-          lang: "en",
-          position: "CEO 2",
-          description:
-            "I’m Noah Stern 242342, COO of Tatra Capital Group. I focus on business development, operations, and strategic investments in food, manufacturing, and real estate. My role involves structuring deals, optimizing operations, and ensuring long-term growth. I appreciate working with dedicated, humble business owners who are passionate about what they do. My goal is to help them take the next step—whether through strategy, guidance, or new opportunities that drive real growth.",
-        },
-        {
-          lang: "sk",
-          position: "CEO 224",
-          description: "Noah 22222 Stern, COO spoločnosti Tatra Capital Group. Zameriavam sa na rozvoj podnikania, operácie a strategické investície v oblasti potravinárstva, výroby a nehnuteľností. Moja úloha zahŕňa štruktúrovanie obchodov, optimalizáciu operácií a zabezpečenie dlhodobého rastu. Rád spolupracujem s oddanými a pokornými podnikateľmi, ktorí sú vášniví v tom, čo robia. Mojím cieľom je pomôcť im urobiť ďalší krok – či už prostredníctvom stratégie, poradenstva alebo nových príležitostí, ktoré podporujú skutočný rast."
-        }
-      ],
-      name: "Noah Stern 2",
-      image: "/images/assets/landing/team/ceo.png",
-    }, 
-    {
-      translations: [
-        {
-          lang: "en",
-          position: "CEO 3",
-          description:
-            "I’m Noah Stern 242342, COO of Tatra Capital Group. I focus on business development, operations, and strategic investments in food, manufacturing, and real estate. My role involves structuring deals, optimizing operations, and ensuring long-term growth. I appreciate working with dedicated, humble business owners who are passionate about what they do. My goal is to help them take the next step—whether through strategy, guidance, or new opportunities that drive real growth.",
-        },
-        {
-          lang: "sk",
-          position: "CEO 523",
-          description: "Noah 22222 Stern, COO spoločnosti Tatra Capital Group. Zameriavam sa na rozvoj podnikania, operácie a strategické investície v oblasti potravinárstva, výroby a nehnuteľností. Moja úloha zahŕňa štruktúrovanie obchodov, optimalizáciu operácií a zabezpečenie dlhodobého rastu. Rád spolupracujem s oddanými a pokornými podnikateľmi, ktorí sú vášniví v tom, čo robia. Mojím cieľom je pomôcť im urobiť ďalší krok – či už prostredníctvom stratégie, poradenstva alebo nových príležitostí, ktoré podporujú skutočný rast."
-        }
-      ],
-      name: "Noah Stern 3",
-      image: "/images/assets/landing/team/ceo.png",
-    }, 
-  ]
+// async function seedTeam() {
+//   const team = [
+//     {
+//       translations: [
+//         {
+//           lang: "en",
+//           position: "CEO",
+//           description:
+//             "I’m Noah Stern, COO of Tatra Capital Group. I focus on business development, operations, and strategic investments in food, manufacturing, and real estate. My role involves structuring deals, optimizing operations, and ensuring long-term growth. I appreciate working with dedicated, humble business owners who are passionate about what they do. My goal is to help them take the next step—whether through strategy, guidance, or new opportunities that drive real growth.",
+//         },
+//         {
+//           lang: "sk",
+//           position: "CEO",
+//           description: "Noah Stern, COO spoločnosti Tatra Capital Group. Zameriavam sa na rozvoj podnikania, operácie a strategické investície v oblasti potravinárstva, výroby a nehnuteľností. Moja úloha zahŕňa štruktúrovanie obchodov, optimalizáciu operácií a zabezpečenie dlhodobého rastu. Rád spolupracujem s oddanými a pokornými podnikateľmi, ktorí sú vášniví v tom, čo robia. Mojím cieľom je pomôcť im urobiť ďalší krok – či už prostredníctvom stratégie, poradenstva alebo nových príležitostí, ktoré podporujú skutočný rast."
+//         }
+//       ],
+//       name: "Noah Stern",
+//       image: "/images/assets/landing/team/ceo.png",
+//     }, 
+//     {
+//       translations: [
+//         {
+//           lang: "en",
+//           position: "CEO 2",
+//           description:
+//             "I’m Noah Stern 242342, COO of Tatra Capital Group. I focus on business development, operations, and strategic investments in food, manufacturing, and real estate. My role involves structuring deals, optimizing operations, and ensuring long-term growth. I appreciate working with dedicated, humble business owners who are passionate about what they do. My goal is to help them take the next step—whether through strategy, guidance, or new opportunities that drive real growth.",
+//         },
+//         {
+//           lang: "sk",
+//           position: "CEO 224",
+//           description: "Noah 22222 Stern, COO spoločnosti Tatra Capital Group. Zameriavam sa na rozvoj podnikania, operácie a strategické investície v oblasti potravinárstva, výroby a nehnuteľností. Moja úloha zahŕňa štruktúrovanie obchodov, optimalizáciu operácií a zabezpečenie dlhodobého rastu. Rád spolupracujem s oddanými a pokornými podnikateľmi, ktorí sú vášniví v tom, čo robia. Mojím cieľom je pomôcť im urobiť ďalší krok – či už prostredníctvom stratégie, poradenstva alebo nových príležitostí, ktoré podporujú skutočný rast."
+//         }
+//       ],
+//       name: "Noah Stern 2",
+//       image: "/images/assets/landing/team/ceo.png",
+//     }, 
+//     {
+//       translations: [
+//         {
+//           lang: "en",
+//           position: "CEO 3",
+//           description:
+//             "I’m Noah Stern 242342, COO of Tatra Capital Group. I focus on business development, operations, and strategic investments in food, manufacturing, and real estate. My role involves structuring deals, optimizing operations, and ensuring long-term growth. I appreciate working with dedicated, humble business owners who are passionate about what they do. My goal is to help them take the next step—whether through strategy, guidance, or new opportunities that drive real growth.",
+//         },
+//         {
+//           lang: "sk",
+//           position: "CEO 523",
+//           description: "Noah 22222 Stern, COO spoločnosti Tatra Capital Group. Zameriavam sa na rozvoj podnikania, operácie a strategické investície v oblasti potravinárstva, výroby a nehnuteľností. Moja úloha zahŕňa štruktúrovanie obchodov, optimalizáciu operácií a zabezpečenie dlhodobého rastu. Rád spolupracujem s oddanými a pokornými podnikateľmi, ktorí sú vášniví v tom, čo robia. Mojím cieľom je pomôcť im urobiť ďalší krok – či už prostredníctvom stratégie, poradenstva alebo nových príležitostí, ktoré podporujú skutočný rast."
+//         }
+//       ],
+//       name: "Noah Stern 3",
+//       image: "/images/assets/landing/team/ceo.png",
+//     }, 
+//   ]
 
-  for (const teamMember of team) {
-    await prisma.team.create({
-      data: teamMember,
-    });
-  }
-  console.log("Team seed data added.");
-}
+//   for (const teamMember of team) {
+//     await prisma.team.create({
+//       data: teamMember,
+//     });
+//   }
+//   console.log("Team seed data added.");
+// }
 
-async function seedTeamSection() {
-  const teamSection = [
-    {
-      image: "/images/assets/landing/team/icon.svg",
-      translations: [
-          {
-            lang: "en",
-            title: "Our Team",
-            position: "Here can be you",
-            buttonText: "Join Us",
-          },
-          {
-            lang: "sk",
-            title: "Spoznajte náš tím",
-            position: "Tu môžete byť vy",
-            buttonText: "Pridajte sa k nám",
-          },
-        ],
-    },
-  ];
+// async function seedTeamSection() {
+//   const teamSection = [
+//     {
+//       image: "/images/assets/landing/team/icon.svg",
+//       translations: [
+//           {
+//             lang: "en",
+//             title: "Our Team",
+//             position: "Here can be you",
+//             buttonText: "Join Us",
+//             buttonCard: "Learn more",
+//             buttonClose: "Close",
+//           },
+//           {
+//             lang: "sk",
+//             title: "Spoznajte náš tím",
+//             position: "Tu môžete byť vy",
+//             buttonText: "Pridajte sa k nám",
+//             buttonCard: "Zisti viac",
+//             buttonClose: "Zavrieť",
+//           },
+//         ],
+//     },
+//   ];
 
-  for (const section of teamSection) {
-    await prisma.teamSection.create({
-      data: section,
-    });
-  }
-  console.log("TeamSection seed data added.");
-}
+//   for (const section of teamSection) {
+//     await prisma.teamSection.create({
+//       data: section,
+//     });
+//   }
+//   console.log("TeamSection seed data added.");
+// }
 
 
 
@@ -318,14 +322,14 @@ async function main() {
   // await seedWorkPosts();
   // await AboutUs();
   // await seedTeam();
-  await seedTeamSection();
+  // await seedTeamSection();
 }
 
 main()
-  .catch((e) => {
-    console.error("Error:", e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+.catch((e) => {
+  console.error("Error:", e);
+  process.exit(1);
+})
+.finally(async () => {
+  await prisma.$disconnect();
+});

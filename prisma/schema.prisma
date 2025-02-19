@@ -59,6 +59,8 @@ type TeamSectionTranslation {
   title       String
   position    String
   buttonText  String
+  buttonCard  String
+  buttonClose String
 }
 
 model TeamSection {
