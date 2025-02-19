@@ -7,7 +7,7 @@ import IndustriesSection from '@/components/pages/admin/industreis/IndustriesSec
 import LanguageSelect from '@/components/ui/language-select'
 import AboutUs from '@/components/pages/admin/about/aboutUs'
 import Team from '@/components/pages/admin/team/team'
-import TeamMembers from '@/components/pages/admin/teamMembers/teams'
+import TeamMebmerss from '@/components/pages/admin/teamMem/TeamMembers'
 
 export default function page() {
 	return (
@@ -95,7 +95,7 @@ export default function page() {
 				<IndustriesSection />
 				<AboutUs />
 				<Team />
-				<TeamMembers />
+				<TeamMebmerss	/>
 			</div>
 		</div>
 		</>

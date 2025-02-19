@@ -2,6 +2,7 @@ export interface IndustriesCardProps {
 	title: string
 	image: string
 	description: string
+	titleSection?: string
 }
 
 export interface IndustriesAdminCardProps {
@@ -9,4 +10,6 @@ export interface IndustriesAdminCardProps {
 	image: string
 	description: string
 	id: string
+	titleSection: string
+	index?: number
 }

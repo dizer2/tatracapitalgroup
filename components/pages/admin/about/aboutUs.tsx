@@ -2,11 +2,13 @@
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Textarea } from '@/components/ui/textarea'
 import { useLanguage } from '@/context/LanguageContext'
 import { useAbout } from '@/hooks/getAboutUs'
 import { usePutAbout } from '@/hooks/putAbout'
+import { imageConverter } from '@/utils/imageConverter'
+import Image from 'next/image'
 
 export default function AboutUs() {
 	const { selectedLanguage } = useLanguage()
@@ -18,8 +20,24 @@ export default function AboutUs() {
 	const [updatedTitle3, setUpdatedTitle3] = React.useState('')
 	const [updatedDescription3, setUpdatedDescription3] = React.useState('')
 
+	const [updateImage, setUpdateImage] = React.useState('')
+
+	const fileInputRef = useRef<HTMLInputElement>(null)
+	const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files && e.target.files[0]) {
+			const file = e.target.files[0]
+			const newFile = await imageConverter(file)
+			setUpdateImage(newFile)
+		}
+	}
+
+	const handleUploadClick = () => {
+		fileInputRef.current?.click()
+	}
+
 	React.useEffect(() => {
 		if (aboutUs.length > 0) {
+			setUpdateImage(aboutUs[0]?.image)
 			const translation = aboutUs[0]?.translations.find(
 				(t) => t.lang === selectedLanguage
 			)
@@ -38,22 +56,29 @@ export default function AboutUs() {
 		}
 	}, [aboutUs, selectedLanguage])
 
-	console.log(aboutUs);
+	console.log(aboutUs)
 
-const { updateAboutUs } = usePutAbout()
+	const { updateAboutUs } = usePutAbout()
 
 	const hanlderUpdateAboutUs = async () => {
-		if (updatedTitle1.trim() !== '' && updatedDescription1.trim() !== '' && updatedTitle2.trim() !== '' && updatedDescription2.trim() !== '' && updatedTitle3.trim() !== '' && updatedDescription3.trim() !== '') {
-				updateAboutUs(
-					selectedLanguage,
-					updatedTitle1,
-					updatedDescription1,
-					updatedTitle2,
-					updatedDescription2,
-					updatedTitle3,
-					updatedDescription3
-				)
-			
+		if (
+			updatedTitle1.trim() !== '' &&
+			updatedDescription1.trim() !== '' &&
+			updatedTitle2.trim() !== '' &&
+			updatedDescription2.trim() !== '' &&
+			updatedTitle3.trim() !== '' &&
+			updatedDescription3.trim() !== ''
+		) {
+			updateAboutUs(
+				selectedLanguage,
+				updatedTitle1,
+				updatedDescription1,
+				updatedTitle2,
+				updatedDescription2,
+				updatedTitle3,
+				updatedDescription3,
+				updateImage
+			)
 		}
 	}
 
@@ -73,7 +98,36 @@ const { updateAboutUs } = usePutAbout()
 					<h3 className='font-bebas text-8xl mb-10 text-white text-center'>
 						About Us
 					</h3>
+		
 					<div className='w-full p-10 bg-darkS rounded-3xl flex flex-col gap-12'>
+					<div className='flex flex-col items-center gap-2'>
+						<input
+							ref={fileInputRef}
+							accept='image/*'
+							type='file'
+							className='hidden'
+							onChange={handleFileChange}
+						/>
+						<div className='flex gap-2'>
+							<div
+								className='w-44 h-44 rounded-full bg-gray-200 flex items-center justify-center text-black text-center cursor-pointer'
+								onClick={handleUploadClick}
+							>
+								UPLOAD
+							</div>
+							{updateImage && (
+								<div className='w-96 h-44 bg-white rounded-2xl flex items-center justify-center p-4'>
+									<Image
+										src={updateImage}
+										width={48}
+										height={48}
+										alt='Icon Team'
+										className='w-full h-full object-cover rounded-xl'
+									/>
+								</div>
+							)}
+						</div>
+					</div>
 						<div className='flex flex-col gap-4'>
 							<div className='flex flex-col gap-2'>
 								<h3 className='font-bebas text-4xl text-white'>
@@ -144,7 +198,9 @@ const { updateAboutUs } = usePutAbout()
 						</div>
 
 						<div className='mt-10'>
-							<Button onClick={hanlderUpdateAboutUs} variant='default'>Save</Button>
+							<Button onClick={hanlderUpdateAboutUs} variant='default'>
+								Save
+							</Button>
 						</div>
 					</div>
 				</div>

@@ -13,7 +13,8 @@ export const usePutAbout = () => {
 		title2: string,
 		description2: string,
 		title3: string,
-		description3: string
+		description3: string,
+		updateImage: string
 	) => {
 		setLoading(true)
 		try {
@@ -24,7 +25,8 @@ export const usePutAbout = () => {
 				title2,
 				description2,
 				title3,
-				description3
+				description3,
+				updateImage
 			)
 			console.log('Updated industry:', data)
 			return data

@@ -8,7 +8,7 @@ export async function PUT(req: Request) {
   const lang = searchParams.get('lang') || 'en';
 
   try {
-    const { title, description, id, image } = await req.json();
+    const { title, description, id, image, titleSection } = await req.json();
 
     if (!id) {
       return NextResponse.json({ error: 'Industry ID is required' }, { status: 400 });
@@ -35,11 +35,11 @@ export async function PUT(req: Request) {
     if (translationIndex > -1) {
       updatedTranslations = [
         ...existingTranslations.slice(0, translationIndex),
-        { lang, title, description },
+        { lang, title, description, titleSection },
         ...existingTranslations.slice(translationIndex + 1),
       ];
     } else {
-      updatedTranslations = [...existingTranslations, { lang, title, description }];
+      updatedTranslations = [...existingTranslations, { lang, title, description, titleSection }];
     }
 
     const updatedIndustry = await prisma.industry.update({

@@ -10,14 +10,15 @@ export const getAllAboutUsData = async (lang: string): Promise<AboutUs[]> => {
 }
 
 
-export const getAboutById = async (lang:string, title1: string, description1: string, title2: string, description2: string, title3: string, description3: string ): Promise<AboutUs> => {
+export const getAboutById = async (lang:string, title1: string, description1: string, title2: string, description2: string, title3: string, description3: string, updateImage:string ): Promise<AboutUs> => {
 	const { data } = await axiosInstance.put<AboutUs>(`${ApiRoutes.ABOUT_ADMIN_API}?lang=${lang}`, {
 		title1,
 		description1,
 		title2,
 		description2,
 		title3,
-		description3
+		description3,
+		updateImage
 	})
 
 	return data;

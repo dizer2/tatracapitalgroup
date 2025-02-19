@@ -44,13 +44,13 @@ export default function AboutUs() {
 			) : (
 				<>
 					{aboutUs[0]?.image && (
-						<div className='md:mb-40 mb-20 relative'>
+						<div className='md:mb-40 sm:h-96 h-40 mb-20 relative'>
 							<Image
 								src={`${aboutUs[0]?.image}`}
 								width={1920}
 								height={1080}
 								alt='main'
-								className='w-full sm:h-auto h-40 rounded-2xl absolute z-10 object-cover'
+								className='w-full h-full rounded-2xl absolute z-10 object-cover'
 							/>
 
 							<Image
@@ -58,7 +58,7 @@ export default function AboutUs() {
 								width={1920}
 								height={1080}
 								alt='main'
-								className='w-full sm:h-auto rounded-2xl h-40 blur-md object-cover'
+								className='w-full h-full rounded-2xl blur-md object-cover'
 							/>
 						</div>
 					)}

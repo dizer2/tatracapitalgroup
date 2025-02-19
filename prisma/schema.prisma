@@ -10,15 +10,16 @@ datasource db {
 type IndustryTranslation {
   lang        String
   title       String
+  titleSection String
   description String
 }
 
 model Industry {
-  id           String                @id @default(auto()) @map("_id") @db.ObjectId
-  translations IndustryTranslation[]
-  image        String
-  createdAt    DateTime              @default(now())
-  updatedAt    DateTime              @updatedAt
+  id                  String                @id @default(auto()) @map("_id") @db.ObjectId
+  translations        IndustryTranslation[]
+  image               String
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
 }
 
 type AboutUsTranslation {

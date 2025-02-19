@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import {
 	Dialog,
@@ -14,86 +14,90 @@ import {
 } from '@/components/ui/dialog'
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
-import { IndustriesAdminCardProps } from '@/types/industries'
-import { usePutIndustries } from '@/hooks/putIndustries'
 import { useLanguage } from '@/context/LanguageContext'
 import Image from 'next/image'
+
 import { imageConverter } from '@/utils/imageConverter'
+import { TeamMemberProps } from '@/types/team'
+import { usePutTeamMembers } from '@/hooks/putTeamMembers'
 
-export default function IndustriesCard({
-	title,
-	description,
+export default function TeamCard({
 	id,
+	name,
+	position,
+	description,
 	image,
-	titleSection,
-	index,
-	
-}: IndustriesAdminCardProps) {
-	const fileInputRef = React.useRef<HTMLInputElement>(null)
-	const [isDialogOpen, setIsDialogOpen] = React.useState(false)
-	const [newTitle, setNewTitle] = React.useState(title)
-	const [newDescription, setNewDescription] = React.useState(description)
-	const [newImage, setNewImage] = React.useState(image);
-	const [newTitleSection, setNewTitleSection] = React.useState(titleSection)
+}: TeamMemberProps) {
+	const fileInputRef = useRef<HTMLInputElement>(null)
+	const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-	console.log(index)
+	const [newName, setNewName] = useState(name)
+	const [newPosition, setNewPosition] = useState(position)
+	const [newDescription, setNewDescription] = useState(description)
+	const [newImage, setNewImage] = useState(image)
+
 	const handleUploadClick = () => {
 		fileInputRef.current?.click()
 	}
 
 	const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (e.target.files) {
+		if (e.target.files && e.target.files[0]) {
 			const file = e.target.files[0]
-
-			const newFile = await imageConverter(file)
-			setNewImage(newFile)
+			const convertedImage = await imageConverter(file)
+			setNewImage(convertedImage)
 		}
 	}
 
 	const { selectedLanguage } = useLanguage()
 
-	const { updateIndustries } = usePutIndustries()
+	const { updateTeamMembers } = usePutTeamMembers();
 
-	const handleUpdateIndustries = async () => {
-		if (newTitle.trim() !== '' && newDescription.trim() !== '') {
-			if (id) {
-				const success = await updateIndustries(
-					selectedLanguage,
-					id,
-					newTitle,
-					newImage,
-					newDescription,
-					newTitleSection
-				)
-				if (success) {
-					setIsDialogOpen(false)
-				}
+	const handleUpdateTeamMember = async () => {
+		if (
+			newName.trim() !== '' &&
+			newPosition.trim() !== '' &&
+			newDescription.trim() !== ''
+		) {
+			const success = await updateTeamMembers(
+				id,
+				newName,
+				newPosition,
+				newDescription,
+				newImage,
+				selectedLanguage,
+			)
+			if (success) {
+				setIsDialogOpen(false)
 			}
 		}
 	}
 
 	return (
 		<div className='w-36 h-auto p-2 bg-white text-black rounded-lg flex flex-col items-center justify-center gap-4 text-center'>
-			<Image src={newImage} width={24} height={24} alt='Industry' />
-			{title}
+			<Image
+				src={newImage}
+				width={64}
+				height={64}
+				alt='Profile'
+				className='rounded-full'
+			/>
+			{newName}
+
 			<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 				<DialogTrigger asChild>
 					<Button variant='default' onClick={() => setIsDialogOpen(true)}>
 						Edit
 					</Button>
 				</DialogTrigger>
-				<DialogContent
-					onOpenAutoFocus={(e) => e.preventDefault()}
-					className='sm:max-w-md'
-				>
+				<DialogContent className='sm:max-w-md'>
 					<DialogHeader className='flex flex-col items-center gap-3'>
 						<div className='flex flex-col items-center gap-2'>
 							<input
 								ref={fileInputRef}
 								accept='image/*'
 								type='file'
-								onChange={handleFileChange}
 								className='hidden'
+								onChange={handleFileChange}
 							/>
 							<div
 								className='w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-black text-center cursor-pointer'
@@ -102,35 +106,32 @@ export default function IndustriesCard({
 								UPLOAD
 							</div>
 						</div>
-						<DialogTitle className='w-full'>{title}</DialogTitle>
-						{index === 0 && (
-							<Input
-							className='text-black'
-							onChange={(e) => setNewTitleSection(e.target.value)}
-							value={newTitleSection}
-							placeholder='Title'
-						/>
-						)}
-						
+						<DialogTitle className='w-full'>{newName}</DialogTitle>
 						<Input
 							className='text-black'
-							onChange={(e) => setNewTitle(e.target.value)}
-							value={newTitle}
-							placeholder='Title'
+							onChange={(e) => setNewName(e.target.value)}
+							value={newName}
+							placeholder='Name'
 						/>
-
+						<Input
+							className='text-black mt-2'
+							onChange={(e) => setNewPosition(e.target.value)}
+							value={newPosition}
+							placeholder='Position'
+						/>
 						<DialogDescription className='w-full'>
 							<Textarea
 								className='text-black resize-none'
 								onChange={(e) => setNewDescription(e.target.value)}
 								value={newDescription}
-								placeholder='Type your description.'
+								placeholder='Description'
 							/>
 						</DialogDescription>
 					</DialogHeader>
 					<DialogFooter className='sm:justify-between mt-4'>
+					
 						<Button
-							onClick={handleUpdateIndustries}
+							onClick={handleUpdateTeamMember}
 							type='button'
 							variant='green'
 							className='w-40'

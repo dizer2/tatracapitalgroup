@@ -8,4 +8,5 @@ export enum ApiRoutes {
 	TEAM_API = 'team',
 	TEAM_SECTION_API = 'teamSection',
 	TEAM_ADMIN_SECTION_API = 'admin/teamSection',
+	TEAM_ADMIN_MEMBER_API = 'admin/teamMember',
 }

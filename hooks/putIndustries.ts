@@ -12,10 +12,11 @@ export const usePutIndustries = () => {
     title: string,
     image: string,
     description: string,
+    titleSection: string
   ) => {
     setLoading(true);
     try {
-      const data = await Api.industries.getIndustryById(id, lang, title, description, image);
+      const data = await Api.industries.getIndustryById(id, lang, title, description, image, titleSection);
       console.log("Updated industry:", data);
       return data;
     } catch (error) {

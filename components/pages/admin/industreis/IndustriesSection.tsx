@@ -22,6 +22,7 @@ export default function IndustriesSection() {
 						{industries.map((industries, index) => (
 							<IndustriesCard
 								key={index}
+								index={index}
 								title={
 									industries.translations.find(
 										(t) => t.lang === selectedLanguage
@@ -31,6 +32,11 @@ export default function IndustriesSection() {
 									industries.translations.find(
 										(t) => t.lang === selectedLanguage
 									)?.description || 'No description available'
+								}
+								titleSection={
+									industries.translations.find(
+										(t) => t.lang === selectedLanguage
+									)?.titleSection || 'No description available'
 								}
 								id={industries.id}
 								image={industries.image}

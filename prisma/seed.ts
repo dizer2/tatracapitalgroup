@@ -3,68 +3,74 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// async function seedIndustries() {
-//   const industries = [
-//     {
-//       translations: [
-//         {
-//           lang: "en",
-//           title: "Food Industry",
-//           description:
-//             "Tatra Capital Group supports businesses in food manufacturing, distribution, and supply chains by providing capital and helping them expand into new markets.",
-//         },
-//         {
-//           lang: "sk",
-//           title: "Potravinársky priemysel",
-//           description:
-//             "Tatra Capital Group podporuje podniky v potravinárskej výrobe, distribúcii a dodávateľských reťazcoch poskytovaním kapitálu a pomáha im expandovať na nové trhy.",
-//         },
-//       ],
-//       image: "/images/assets/landing/industries/Food.svg",
-//     },
-//     {
-//       translations: [
-//         {
-//           lang: "en",
-//           title: "Manufacturing",
-//           description:
-//             "We invest in manufacturing businesses, injecting capital into production and helping companies broaden their market reach across Slovakia and Central Europe.",
-//         },
-//         {
-//           lang: "sk",
-//           title: "Výroba",
-//           description:
-//             "Investujeme do výrobných podnikov, vkladáme kapitál do výroby a pomáhame spoločnostiam rozširovať ich trhový dosah v rámci Slovenska a strednej Európy.",
-//         },
-//       ],
-//       image: "/images/assets/landing/industries/Manufacturing.svg",
-//     },
-//     {
-//       translations: [
-//         {
-//           lang: "en",
-//           title: "Real Estate",
-//           description:
-//             "Our real estate investments focus on strategic developments that improve urban growth, logistics infrastructure, and commercial properties, ensuring long-term business viability.",
-//         },
-//         {
-//           lang: "sk",
-//           title: "Nehnuteľnosti",
-//           description:
-//             "Naše investície do nehnuteľností sa zameriavajú na strategické projekty, ktoré zlepšujú mestský rast, logistickú infraštruktúru a komerčné nehnuteľnosti, čím zabezpečujú dlhodobú obchodnú životaschopnosť.",
-//         },
-//       ],
-//       image: "/images/assets/landing/industries/Building.svg",
-//     },
-//   ];
+async function seedIndustries() {
+  const industries = [
+    {
+      translations: [
+        {
+          lang: "en",
+          title: "Food Industry",
+          titleSection: 'Industry Experts',
+          description:
+            "Tatra Capital Group supports businesses in food manufacturing, distribution, and supply chains by providing capital and helping them expand into new markets.",
+        },
+        {
+          lang: "sk",
+          title: "Potravinársky priemysel",
+          titleSection: 'Odborníci na odvetvie',
+          description:
+            "Tatra Capital Group podporuje podniky v potravinárskej výrobe, distribúcii a dodávateľských reťazcoch poskytovaním kapitálu a pomáha im expandovať na nové trhy.",
+        },
+      ],
+      image: "/images/assets/landing/industries/Food.svg",
+    },
+    {
+      translations: [
+        {
+          lang: "en",
+          title: "Manufacturing",
+          titleSection: 'Industry Experts',
+          description:
+            "We invest in manufacturing businesses, injecting capital into production and helping companies broaden their market reach across Slovakia and Central Europe.",
+        },
+        {
+          lang: "sk",
+          title: "Výroba",
+          titleSection: 'Odborníci na odvetvie',
+          description:
+            "Investujeme do výrobných podnikov, vkladáme kapitál do výroby a pomáhame spoločnostiam rozširovať ich trhový dosah v rámci Slovenska a strednej Európy.",
+        },
+      ],
+      image: "/images/assets/landing/industries/Manufacturing.svg",
+    },
+    {
+      translations: [
+        {
+          lang: "en",
+          title: "Real Estate",
+          titleSection: 'Industry Experts',
+          description:
+            "Our real estate investments focus on strategic developments that improve urban growth, logistics infrastructure, and commercial properties, ensuring long-term business viability.",
+        },
+        {
+          lang: "sk",
+          title: "Nehnuteľnosti",
+          titleSection: 'Odborníci na odvetvie',
+          description:
+            "Naše investície do nehnuteľností sa zameriavajú na strategické projekty, ktoré zlepšujú mestský rast, logistickú infraštruktúru a komerčné nehnuteľnosti, čím zabezpečujú dlhodobú obchodnú životaschopnosť.",
+        },
+      ],
+      image: "/images/assets/landing/industries/Building.svg",
+    },
+  ];
 
-//   for (const industry of industries) {
-//     await prisma.industry.create({
-//       data: industry,
-//     });
-//   }
-//   console.log("Industries seed data added.");
-// }
+  for (const industry of industries) {
+    await prisma.industry.create({
+      data: industry,
+    });
+  }
+  console.log("Industries seed data added.");
+}
 
 // async function AboutUs() {
 //   const aboutUs = [
@@ -318,7 +324,7 @@ const prisma = new PrismaClient();
 
 
 async function main() {
-  // await seedIndustries();
+  await seedIndustries();
   // await seedWorkPosts();
   // await AboutUs();
   // await seedTeam();

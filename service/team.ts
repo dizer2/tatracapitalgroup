@@ -22,3 +22,11 @@ export const getIdTeamSection = async (lang: string, updatedTitle: string, cardP
 
 	return data;
 }
+
+export const getIdTeamMember = async (id:string, newName: string, newPosition: string, newDescription: string, newImage: string | undefined, lang: string): Promise<Team> => {
+	const { data } = await axiosInstance.put<Team>(`${ApiRoutes.TEAM_ADMIN_MEMBER_API}?lang=${lang}`, {
+		id, newName, newPosition, newDescription, newImage
+	})
+
+	return data;
+}

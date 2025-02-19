@@ -12,9 +12,6 @@ export default function TeamPage() {
 	const { team, loading } = useTeam(selectedLanguage)
 	const { teamSection, loading2 } = useTeamSection(selectedLanguage)
 
-	console.log(teamSection)
-	console.log(team)
-
 	return (
 		<>
 			<div className='2xl:px-20 lg:px-16 md:px-0'>
@@ -103,7 +100,7 @@ export default function TeamPage() {
 											className='w-full'
 											href='https://meet.google.com/landing'
 										>
-											<Button className='w-full h-16' variant='white'>
+											<Button className='w-full h-auto py-4 break-words whitespace-normal' variant='white'>
 												{
 													teamSection[0]?.translations.find(
 														(t) => t.lang === selectedLanguage

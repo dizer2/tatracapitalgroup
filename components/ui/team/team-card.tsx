@@ -28,22 +28,22 @@ export default function TeamCard({
 	buttonClose: string | undefined
 }) {
 	return (
-		<div className='md:w-80 w-full h-96 bg-white flex flex-col items-center justify-between rounded-2xl p-5'>
+		<div className='md:w-80 w-full min-h-96 h-auto bg-white flex flex-col items-center justify-between rounded-2xl p-5'>
 			<div className='flex flex-col items-center gap-4'>
 				<div className='w-36 h-36 bg-black rounded-full flex items-center justify-center'>
-					<Image src={image} width={150} height={150} alt='team-member' />
+					<Image className='rounded-full' src={image} width={150} height={150} alt='team-member' />
 				</div>
 
 				<div className='text-black flex flex-col items-center gap-1'>
-					<p className='font-medium text-3xl'>{name}</p>
-					<p className='text-black text-opacity-50 text-2xl'>{position}</p>
+					<p className='font-medium text-3xl text-center'>{name}</p>
+					<p className='text-black text-opacity-50 text-2xl text-center my-2'>{position} </p>
 				</div>
 			</div>
 
 			<Dialog>
 				<DialogTrigger asChild>
-					<Button className='w-full h-16' variant='default'>
-						{buttonCard}
+					<Button className='w-full h-auto py-4 break-words whitespace-normal' variant='default'>
+						{buttonCard} 
 					</Button>
 				</DialogTrigger>
 

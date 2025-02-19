@@ -6,7 +6,7 @@ export async function PUT(req: Request) {
   const lang = searchParams.get('lang') || 'en';
 
   try {
-    const { title1, description1, title2, description2, title3, description3 } = await req.json();
+    const { title1, description1, title2, description2, title3, description3,updateImage } = await req.json();
 
     const aboutUs = await prisma.aboutUs.findMany();
 
@@ -33,8 +33,9 @@ export async function PUT(req: Request) {
 
    
     const updatedAboutUs = await prisma.aboutUs.update({
-      where: { id: aboutUs[0].id },  // Assuming only one record exists, you can modify this if necessary
+      where: { id: aboutUs[0].id }, 
       data: {
+        image: updateImage ?? aboutUs[0].image,
         translations: updatedTranslations,
       },
     });
