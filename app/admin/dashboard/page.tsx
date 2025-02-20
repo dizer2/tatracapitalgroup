@@ -6,6 +6,7 @@ import Team from '@/components/pages/admin/team/team'
 import TeamMebmerss from '@/components/pages/admin/teamMem/TeamMembers'
 import MainSection from '@/components/pages/admin/mainSection/mainSection'
 import WorkPost from '@/components/pages/admin/workPosts/workpost'
+import WorkSection from '@/components/pages/admin/workSection/workSection'
 
 export default function page() {
 	return (
@@ -26,6 +27,7 @@ export default function page() {
 				<AboutUs />
 				<Team />
 				<TeamMebmerss	/>
+				<WorkSection />
 				<WorkPost />
 			</div>
 		</div>

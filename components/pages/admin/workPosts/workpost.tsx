@@ -50,19 +50,20 @@ export default function WorkPosts() {
     try {
       // Extract the first (and only) translation from data.translations
       const translation = data.translations[0]
+      console.log(translation);
       await postWorkPost({
         lang: selectedLanguage,
-        newTitle: translation.title,
-        newDescription: translation.miniDescription,
-        newWorkType: translation.workType,
-        newLocation: translation.location,
-        newMoney: translation.money,
-        newTitle2: translation.title2,
-        newDescription2: translation.description2,
-        newTitle3: translation.title3,
-        newTitle3Labels: translation.title3Labels,
-        newTitle4: translation.title4,
-        newTitle4Labels: translation.title4Labels
+        title: translation.title,
+        miniDescription: translation.miniDescription,
+        workType: translation.workType,
+        location: translation.location,
+        money: translation.money,
+        title2: translation.title2,
+        description2: translation.description2,
+        title3: translation.title3,
+        title3Labels: translation.title3Labels,
+        title4: translation.title4,
+        title4Labels: translation.title4Labels
       })
       setNewPosts(newPosts.filter(p => p.id !== tempId))
       mutate()

@@ -100,9 +100,18 @@ export default function CareerPosts() {
 					{loading2 ? (
 						<Skeleton className='md:w-72 w-full h-16' />
 					) : (
-<Button variant='main' className='md:w-72 w-full h-16 uppercase'>
-							{workSection[0].translations.find((t) => t.lang === selectedLanguage)?.buttonApplyText}
+						<Button
+							variant="main"
+							className="md:w-72 w-full h-16 uppercase"
+							asChild
+						>
+							<a
+								href={`mailto:job@tatracapitalgroup.com?subject=${encodeURIComponent(translations[0]?.title || 'Job Application')}`}
+							>
+								{workSection[0].translations.find((t) => t.lang === selectedLanguage)?.buttonApplyText}
+							</a>
 						</Button>
+
 					)}
 				
 			</div>

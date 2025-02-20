@@ -5,18 +5,18 @@ import { Api } from '@/service/api-client'
 import { WorkPost } from '@prisma/client'
 
 export interface CreateWorkPostParams {
-  lang: string
-  newTitle?: string
-  newDescription?: string
-  newWorkType?: string
-  newLocation?: string
-  newMoney?: string
-  newTitle2?: string
-  newDescription2?: string
-  newTitle3?: string
-  newTitle3Labels?: string[]
-  newTitle4?: string
-  newTitle4Labels?: string[]
+	lang: string,
+	title: string,
+  miniDescription: string | undefined,
+  workType: string | undefined,
+  location: string | undefined,
+  money: string | undefined,
+  title2: string | undefined,
+  description2: string | undefined,
+  title3: string | undefined,
+  title3Labels: string[] | undefined,
+  title4: string | undefined,
+  title4Labels: string[] | undefined
 }
 
 export const usePostWorkPost = () => {
@@ -27,17 +27,17 @@ export const usePostWorkPost = () => {
     try {
       const data = await Api.work.createWorkPost(
         params.lang,
-        params.newTitle,
-        params.newDescription,
-        params.newWorkType,
-        params.newLocation,
-        params.newMoney,
-        params.newTitle2,
-        params.newDescription2,
-        params.newTitle3,
-        params.newTitle3Labels,
-        params.newTitle4,
-        params.newTitle4Labels
+        params.title,
+        params.miniDescription,
+        params.workType,
+        params.location,
+        params.money,
+        params.title2,
+        params.description2,
+        params.title3,
+        params.title3Labels,
+        params.title4,
+        params.title4Labels
       )
       console.log('Created post:', data)
       return data

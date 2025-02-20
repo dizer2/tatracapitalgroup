@@ -10,7 +10,6 @@ import { usePostTeamMember } from '@/hooks/postTeamMember'
 export default function TeamMembers() {
 	const { selectedLanguage } = useLanguage()
 	const { team, loading, mutate } = useTeam(selectedLanguage)
-	console.log(team)
 	const postTeamMember = usePostTeamMember()
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const [newMembers, setNewMembers] = useState<any[]>([])

@@ -16,7 +16,7 @@ export default function Socials() {
 		) : (
 			<>
 			{mainInfo[0]?.socialMedia.map((social, index) => (
-				<Link href={social.link} key={index}>
+				<Link target='_blank' href={social.link} key={index}>
 				<Image
 					width={35}	
 					height={35}
@@ -26,7 +26,7 @@ export default function Socials() {
 			</Link>
 			))}
 
-			<a href={`mailto:${mainInfo[0]?.email}`}>
+			<a target='_blank' href={`mailto:${mainInfo[0]?.email}`}>
 				<Image
 					width={35}
 					height={35}
@@ -35,7 +35,7 @@ export default function Socials() {
 				/>
 			</a>
 
-			<a className='cursor-pointer' href={`tel:${mainInfo[0]?.phone}`}>
+			<a target='_blank' className='cursor-pointer' href={`tel:${mainInfo[0]?.phone}`}>
 				<Image
 					width={35}
 					height={35}

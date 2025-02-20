@@ -27,6 +27,8 @@ export default function TeamCard({
 	buttonCard: string | undefined
 	buttonClose: string | undefined
 }) {
+
+
 	return (
 		<div className='md:w-80 w-full min-h-96 h-auto bg-white flex flex-col items-center justify-between rounded-2xl p-5'>
 			<div className='flex flex-col items-center gap-4'>

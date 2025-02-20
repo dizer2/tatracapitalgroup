@@ -56,7 +56,6 @@ export default function AboutUs() {
 		}
 	}, [aboutUs, selectedLanguage])
 
-	console.log(aboutUs)
 
 	const { updateAboutUs } = usePutAbout()
 

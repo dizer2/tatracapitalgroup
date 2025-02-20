@@ -18,6 +18,6 @@ export enum ApiRoutes {
 	WORK_SECTION_API = 'workSection',
 
 	WORK_ADMIN_API = 'admin/workPost',
-
+	WORK_ADMIN_SECTION_API = 'admin/workSection',
 
 }

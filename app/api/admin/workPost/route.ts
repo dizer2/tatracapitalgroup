@@ -99,40 +99,47 @@ export async function PUT(req: Request) {
 }
 
 export async function POST(req: Request) {
-  try {
-    const { lang, newTitle,
-      newDescription,
-      newWorkType,
-      newLocation,
-      newMoney,
-      newTitle2,
-      newDescription2,
-      newTitle3,
-      newTitle3Labels,
-      newTitle4,
-      newTitle4Labels, } = await req.json();
+  console.log("SUUUUUUUUUUu");
 
-    const newMember = await prisma.workPost.create({
-      data: {
-        translations: {
+  try {
+    const { lang,
+      title,
+      miniDescription,
+      workType,
+      location,
+      money,
+      title2,
+      description2,
+      title3,
+      title3Labels,
+      title4,
+      title4Labels } = await req.json();
+
+      console.log("SUUUUUUUUUUu");
+      console.log(title)
+
+      const newMember = await prisma.workPost.create({
+        data: {
+          translations: [{
             lang,
-            title: newTitle,
-            miniDescription: newDescription,
-            workType: newWorkType,
-            location: newLocation,
-            money: newMoney,
-            title2: newTitle2,
-            description2: newDescription2,
-            title3: newTitle3,
-            title3Labels: newTitle3Labels,
-            title4: newTitle4,
-            title4Labels: newTitle4Labels,
+            title,
+            miniDescription,
+            workType,
+            location,
+            money,
+            workTypeLarge: workType,
+            title2,
+            description2,
+            title3,
+            title3Labels,
+            title4,
+            title4Labels
+          }]
+        },
+        include: {
+          translations: true
         }
-      },
-      include: {
-        translations: true
-      }
-    });
+      });
 
     return NextResponse.json(newMember);
   } catch (error) {

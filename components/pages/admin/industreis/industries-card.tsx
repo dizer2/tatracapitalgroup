@@ -36,7 +36,6 @@ export default function IndustriesCard({
 	const [newImage, setNewImage] = React.useState(image);
 	const [newTitleSection, setNewTitleSection] = React.useState(titleSection)
 
-	console.log(index)
 	const handleUploadClick = () => {
 		fileInputRef.current?.click()
 	}
