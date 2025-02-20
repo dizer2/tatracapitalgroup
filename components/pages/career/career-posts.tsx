@@ -12,14 +12,12 @@ export default function CareerPosts() {
 	const { selectedLanguage } = useLanguage()
 	const { work, loading } = useWork(selectedLanguage)
 	const { workSection, loading2 } = useWorkSection(selectedLanguage)
-	console.log(work)
 
-	// console.log(work)
 	return (
 		<div className='w-full min-h-screen relative'>
 			<></>
 			<div className='md:mb-40 mb-20 mt-40 2xl:px-20 lg:px-16 md:px-10 px-10 flex flex-col items-center gap-4'>
-				{loading2 && work ? (
+				{loading2 && loading && work && workSection ? (
 					<>
 						<Skeleton className='w-1/2 h-16' />
 						<Skeleton className='w-full h-40' />
@@ -45,7 +43,7 @@ export default function CareerPosts() {
 			</div>
 
 			<div className='2xl:px-20 lg:px-16 md:px-10 px-10 w-full flex flex-wrap items-center xl:justify-between justify-center gap-8'>
-				{loading ? (
+			{loading2 && loading && work && workSection ? (
 					<>
 						<Skeleton className='w-96 h-96' />
 						<Skeleton className='w-96 h-96' />
