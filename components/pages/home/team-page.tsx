@@ -14,7 +14,7 @@ export default function TeamPage() {
 
 	return (
 		<>
-			<div className='2xl:px-20 lg:px-16 md:px-0'>
+			<div className='2xl:px-20 lg:px-16 md:px-0' id='team'>
 				<div className='w-full md:p-12 p-6 bg-darkS rounded-t-3xl relative z-10'>
 					<Image
 						width={1920}

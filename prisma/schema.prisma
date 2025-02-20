@@ -7,6 +7,31 @@ datasource db {
   url      = env("MONGO_DB_URL")
 }
 
+
+
+type MainInfoTranslation {
+  lang        String
+  nav1        String
+  nav2        String
+  title       String
+}
+
+type SocialMediaLink {
+  link        String
+  icon        String
+}
+
+model MainInfo {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  logo        String
+  phone       String
+  email       String
+  socialMedia SocialMediaLink[]
+  translations MainInfoTranslation[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 type IndustryTranslation {
   lang        String
   title       String
@@ -93,4 +118,19 @@ model WorkPost {
   translations  WorkPostTranslation[]
   createdAt     DateTime               @default(now())
   updatedAt     DateTime               @updatedAt
+}
+
+model WorkPostSection {
+  id          String                 @id @default(auto()) @map("_id") @db.ObjectId
+  translations WorkPostSectionTranslation[]
+  createdAt   DateTime               @default(now())
+  updatedAt   DateTime               @updatedAt
+}
+
+type WorkPostSectionTranslation {
+  lang        String
+  title       String
+  description String
+  buttonCardText  String
+  buttonApplyText String
 }

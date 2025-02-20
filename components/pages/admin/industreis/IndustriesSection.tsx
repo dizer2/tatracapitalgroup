@@ -10,7 +10,7 @@ export default function IndustriesSection() {
 	const { loading, industries } = useIndustries(selectedLanguage)
 
 	return (
-		<div className='mt-6'>
+		<div className='mt-20'>
 			<h3 className='font-bebas text-8xl mb-10 text-white text-center'>
 				Industry Experts
 			</h3>

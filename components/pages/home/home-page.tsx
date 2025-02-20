@@ -1,8 +1,17 @@
+'use client'
+
+import { Skeleton } from '@/components/ui/skeleton';
+import { useLanguage } from '@/context/LanguageContext'
+import { useMain } from '@/hooks/getMain';
 import Image from 'next/image'
 import React from 'react'
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax'
 
 export default function Home() {
+	const { selectedLanguage } = useLanguage();
+	const { mainInfo, loading } = useMain(selectedLanguage);
+
+	console.log(mainInfo)
 	return (
 		<>
 			<ParallaxBanner
@@ -20,7 +29,14 @@ export default function Home() {
 					className='w-full 2xl:px-20 lg:px-16 md:px-10 px-10 z-10'
 				>
 					<h3 className='font-bebas text-6xl sm:text-7xl  md:text-8xl text-center flex items-center justify-center z-10'>
-						<p className='z-10'>Shaping Tomorrow, Today</p>
+						{loading ? (
+							<Skeleton className='w-1/2 h-12' />
+						) : (
+							<p className='z-10'>{mainInfo[0]?.translations.find(
+								(t) => t.lang === selectedLanguage
+							)?.title}</p>
+						)
+							}
 						<span className='absolute w-1/2 h-20 bg-black top-0 z-0 blur-[50px]'></span>
 					</h3>
 				</Parallax>

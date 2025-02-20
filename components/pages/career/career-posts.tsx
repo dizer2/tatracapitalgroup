@@ -1,34 +1,80 @@
+'use client'
+
 import CareerCard from '@/components/ui/career-card'
+import { Skeleton } from '@/components/ui/skeleton'
+import { useLanguage } from '@/context/LanguageContext'
+import { useWork } from '@/hooks/getWork'
+import { useWorkSection } from '@/hooks/getWorkSection'
 import Image from 'next/image'
 import React from 'react'
 
 export default function CareerPosts() {
+	const { selectedLanguage } = useLanguage()
+	const { work, loading } = useWork(selectedLanguage)
+	const { workSection, loading2 } = useWorkSection(selectedLanguage)
+	console.log(work)
+
+	// console.log(work)
 	return (
 		<div className='w-full min-h-screen relative'>
-			<div className='md:mb-40 mb-20 mt-40 2xl:px-20 lg:px-16 md:px-10 px-10'>
-				<h3 className='font-bebas lg:text-8xl text-6xl text-center md:mb-12 mb-6  text-white'>
-					Who We Are
-				</h3>
-				<p className='md:text-2xl text-lg text-center'>
-					<span className='font-bold'>Tatra Capital Group</span> is a
-					multinational holding company founded by a group of international
-					investors from the US, UK, and the Middle East. With a strong presence
-					in Slovakia, we partner with and develop businesses in key
-					industries—Food, Manufacturing, and Real Estate—that are essential for
-					long-term economic development in Central Europe. Our approach
-					combines global business expertise with deep local market knowledge,
-					ensuring that every business within our portfolio operates
-					efficiently, scales sustainably, and contributes to regional economic
-					growth. We focus on long-term business development and sustainable
-					expansion.
-				</p>
+			<></>
+			<div className='md:mb-40 mb-20 mt-40 2xl:px-20 lg:px-16 md:px-10 px-10 flex flex-col items-center gap-4'>
+				{loading2 && work ? (
+					<>
+						<Skeleton className='w-1/2 h-16' />
+						<Skeleton className='w-full h-40' />
+					</>
+				) : (
+					<>
+						<h3 className='font-bebas lg:text-8xl text-6xl text-center md:mb-12 mb-3  text-white'>
+							{
+								workSection[0].translations.find(
+									(t) => t.lang === selectedLanguage
+								)?.title
+							}
+						</h3>
+						<p className='md:text-2xl text-lg text-center'>
+							{
+								workSection[0].translations.find(
+									(t) => t.lang === selectedLanguage
+								)?.description
+							}
+						</p>
+					</>
+				)}
 			</div>
 
 			<div className='2xl:px-20 lg:px-16 md:px-10 px-10 w-full flex flex-wrap items-center xl:justify-between justify-center gap-8'>
-				{Array.from({ length: 5 }).map((_, idx) => (
-					<CareerCard key={idx}/>
-				))}
-	
+				{loading ? (
+					<>
+						<Skeleton className='w-96 h-96' />
+						<Skeleton className='w-96 h-96' />
+						<Skeleton className='w-96 h-96' />
+					</>
+				) : (
+					<>
+						{work.map((post) => (
+							<CareerCard
+								key={post.id}
+								title={
+									post.translations.find((t) => t.lang === selectedLanguage)
+										?.title
+								}
+								miniDescription={
+									post.translations.find((t) => t.lang === selectedLanguage)
+										?.miniDescription
+								}
+								workType={
+									post.translations.find((t) => t.lang === selectedLanguage)
+										?.workType
+								}
+								buttonCardText={workSection[0].translations.find((t) => t.lang === selectedLanguage)
+									?.buttonCardText}
+								index={post.id}
+							/>
+						))}
+					</>
+				)}
 			</div>
 
 			<Image

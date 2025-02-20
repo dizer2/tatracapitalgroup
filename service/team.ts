@@ -9,6 +9,32 @@ export const getAllTeamMember = async (lang: string): Promise<Team[]> => {
 	return data;
 }
 
+export const createTeamMember = async (
+  name: string,
+  position: string,
+  description: string,
+  image: string | undefined,
+  lang: string
+): Promise<Team> => {
+  const { data } = await axiosInstance.post<Team>(ApiRoutes.TEAM_ADMIN_MEMBER_API, {
+    name,
+    image,
+    lang,
+    position,
+    description
+  });
+  return data;
+};
+
+export const deleteTeamMember = async (id: string, lang: string): Promise<Team> => {
+	const { data } = await axiosInstance.delete<Team>(`${ApiRoutes.TEAM_ADMIN_MEMBER_API}?lang=${lang}`, {
+		data: { id }
+	})
+
+	return data;
+}
+
+
 export const getTeamSection = async (lang: string): Promise<TeamSection[]> => {
 	const { data } = await axiosInstance.get<TeamSection[]>(`${ApiRoutes.TEAM_SECTION_API}?lang=${lang}`)
 

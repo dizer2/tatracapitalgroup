@@ -6,11 +6,17 @@ import React from 'react'
 import BurgerMenu from './burger-menu'
 import Socials from './socials'
 import Nav from './nav'
+import Link from 'next/link'
+import { useLanguage } from '@/context/LanguageContext'
+import { useMain } from '@/hooks/getMain'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export default function MobilePhone() {
 	const [isClient, setIsClient] = React.useState(false)
 	const [isOpen, setIsOpen] = React.useState(false)
-	const [burgerMenuElements, setShowBurgerMenuElements] = React.useState(false)
+	const [burgerMenuElements, setShowBurgerMenuElements] = React.useState(false);
+	const { selectedLanguage } = useLanguage()
+	const { mainInfo, loading } = useMain(selectedLanguage)
 
 	React.useEffect(() => {
 		setIsClient(true)
@@ -42,13 +48,21 @@ export default function MobilePhone() {
 			<div className='w-full h-24 2xl:px-20 lg:px-16 md:px-10 px-10'>
 				<div className='w-full h-full flex items-center justify-between md:justify-between relative'>
 					<div className='z-10'>
-						<Image
-							width={60}
-							height={50}
-							src={'/images/assets/landing/logo.svg'}
-							alt='logo'
-							className='w-14 lg:w-16'
-						/>
+					<Link	href='/'>
+					{loading ? (
+						<Skeleton className='w-14 lg:w-16 h-14 lg:h-16 rounded-full' />
+					) : (
+<Image
+						width={60}
+						height={50}
+						src={mainInfo[0]?.logo}
+						alt='logo'
+						className='w-14 lg:w-16'
+					/>
+					)}
+					
+					</Link>
+					
 					</div>
 					<div className='flex items-center lg:gap-12 md:gap-8 gap-4 z-20'>
 						<LanguageSelect />

@@ -1,23 +1,37 @@
 import React from 'react'
 import { Button } from './button'
+import { useRouter } from 'next/navigation'
 
-export default function CareerCard() {
+interface CareerCardProps {
+  title: string | undefined
+  miniDescription: string | undefined
+  workType: string |undefined
+  index: string | undefined
+  buttonCardText: string | undefined
+}
+
+export default function CareerCard({ title, miniDescription, workType, index, buttonCardText}: CareerCardProps) {
+  const navigator = useRouter();
+
+  const handlerCareerPost = () => {
+    navigator.push(`career/${index}`);
+  }
   return (
-    <div className="w-96 sm:h-96 rounded-3xl bg-darkS p-6 flex flex-col justify-between relative overflow-hidden z-10 md:gap-0 gap-10">
+    <div className="w-96 sm:h-auto rounded-3xl bg-darkS p-6 flex flex-col justify-between relative overflow-hidden z-10 md:gap-0">
       <div>
-        <p className="mb-6">Part-Time</p>
+        <p className="mb-6">{workType}</p>
         <div className="flex flex-col gap-2">
           <h4 className="font-bold text-2xl">
-            Business Registration & Compliance Specialist
+            {title}
           </h4>
-          <p className="text-md text-white text-opacity-50">
-            We need a business registration expert to assist with the legal and regulatory setup of our company in Slovakia, ensuring compliance with local and EU trade laws.
+          <p className="text-md text-white text-opacity-50 break-words whitespace-normal">
+            {miniDescription}
           </p>
         </div>
       </div>
 
-      <Button className="md:w-2/3 w-full h-16" variant="default">
-        MORE INFO
+      <Button className="md:w-2/3 w-full h-16 mt-10" variant="default" onClick={handlerCareerPost}>
+        {buttonCardText}
       </Button>
 
       <div

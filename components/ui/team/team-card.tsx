@@ -30,7 +30,7 @@ export default function TeamCard({
 	return (
 		<div className='md:w-80 w-full min-h-96 h-auto bg-white flex flex-col items-center justify-between rounded-2xl p-5'>
 			<div className='flex flex-col items-center gap-4'>
-				<div className='w-36 h-36 bg-black rounded-full flex items-center justify-center'>
+				<div className='w-36 h-36 rounded-full flex items-center justify-center'>
 					<Image className='rounded-full' src={image} width={150} height={150} alt='team-member' />
 				</div>
 
@@ -50,7 +50,7 @@ export default function TeamCard({
 				<DialogContent className='sm:max-w-md'>
 					<DialogHeader className='flex flex-col items-center gap-3'>
 						<Image
-							src={'/images/assets/landing/team/ceo.png'}
+							src={image}
 							width={150}
 							height={150}
 							alt='team-member'

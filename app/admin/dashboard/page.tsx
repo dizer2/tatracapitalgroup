@@ -8,6 +8,8 @@ import LanguageSelect from '@/components/ui/language-select'
 import AboutUs from '@/components/pages/admin/about/aboutUs'
 import Team from '@/components/pages/admin/team/team'
 import TeamMebmerss from '@/components/pages/admin/teamMem/TeamMembers'
+import MainSection from '@/components/pages/admin/mainSection/mainSection'
+import WorkPost from '@/components/pages/admin/workPosts/workpost'
 
 export default function page() {
 	return (
@@ -91,11 +93,12 @@ export default function page() {
 			</div>
 
 			<div className='flex flex-col justify-center mt-20'>
-				
+				<MainSection />
 				<IndustriesSection />
 				<AboutUs />
 				<Team />
 				<TeamMebmerss	/>
+				<WorkPost />
 			</div>
 		</div>
 		</>

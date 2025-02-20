@@ -8,12 +8,6 @@ export async function PUT(req: Request) {
   try {
     const { id, newName, newPosition, newDescription, newImage } = await req.json();
 
-    console.log("id", id);
-    console.log("newName", newName);
-    console.log("newPosition", newPosition);
-    console.log("newDescription", newDescription);
-    console.log("newImage", newImage);
-
    
     if (!id) {
       return NextResponse.json({ error: 'Industry ID is required' }, { status: 400 });
@@ -71,5 +65,46 @@ export async function PUT(req: Request) {
   } catch (error) {
     console.error("Error updating team section:", error);
     return NextResponse.json({ error: 'Failed to update team section' }, { status: 500 });
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const { name, image, lang, position, description } = await req.json();
+
+    const newMember = await prisma.team.create({
+      data: {
+        name,
+        image,
+        translations: {
+            lang,
+            position,
+            description
+        }
+      },
+      include: {
+        translations: true
+      }
+    });
+
+    return NextResponse.json(newMember);
+  } catch (error) {
+    console.error("Error creating team member:", error);
+    return NextResponse.json({ error: 'Failed to create team member' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  try {
+    const { id } = await req.json();
+
+    await prisma.team.delete({
+      where: { id }
+    });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Error deleting team member:", error);
+    return NextResponse.json({ error: 'Failed to delete team member' }, { status: 500 });
   }
 }
