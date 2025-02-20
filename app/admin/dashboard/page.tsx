@@ -11,7 +11,7 @@ export default function page() {
 	return (
 		<>
 		
-		<div className='fixed w-full h-10 py-10 bg-darkS flex justify-center items-center border-b-2 border-white'>
+		<div className='fixed w-full h-10 py-10 bg-darkS flex justify-center items-center border-b-2 border-white z-50'>
 		<LanguageSelect />
 		</div>
 		<div className='p-20'>
