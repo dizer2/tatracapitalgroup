@@ -33,7 +33,7 @@ export default function TeamCard({
 		<div className='md:w-80 w-full min-h-96 h-auto bg-white flex flex-col items-center justify-between rounded-2xl p-5'>
 			<div className='flex flex-col items-center gap-4'>
 				<div className='w-36 h-36 rounded-full flex items-center justify-center'>
-					<Image className='rounded-full' src={image} width={150} height={150} alt='team-member' />
+					<Image className='rounded-full' src={image} width={150} height={150} alt='Tatra Capital Group' />
 				</div>
 
 				<div className='text-black flex flex-col items-center gap-1'>
@@ -55,7 +55,7 @@ export default function TeamCard({
 							src={image}
 							width={150}
 							height={150}
-							alt='team-member'
+							alt='Tatra Capital Group'
 						/>
 						<DialogTitle>{name}</DialogTitle>
 						<p className='text-white text-opacity-50 text-2xl'>{position}</p>

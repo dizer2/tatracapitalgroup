@@ -73,7 +73,7 @@ export default function IndustriesCard({
 
 	return (
 		<div className='w-36 h-auto p-2 bg-white text-black rounded-lg flex flex-col items-center justify-center gap-4 text-center'>
-			<Image src={newImage} width={24} height={24} alt='Industry' />
+			<Image src={newImage} width={24} height={24} alt='Tatracapitalgroup' />
 			{title}
 			<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 				<DialogTrigger asChild>

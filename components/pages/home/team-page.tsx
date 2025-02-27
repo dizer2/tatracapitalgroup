@@ -20,7 +20,7 @@ export default function TeamPage() {
 						width={1920}
 						height={1080}
 						src={'/images/assets/career/post/bg.svg'}
-						alt='career'
+						alt='Tatra Capital Group'
 						className='absolute top-0 left-0 w-full h-full object-cover -z-10'
 					/>
 
@@ -83,7 +83,7 @@ export default function TeamPage() {
 											src={teamSection[0]?.image}
 											width={70}
 											height={70}
-											alt='team-icon'
+											alt='Tatra Capital Group'
 										/>
 									</div>
 

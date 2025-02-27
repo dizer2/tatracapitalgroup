@@ -49,7 +49,7 @@ export default function AboutUs() {
 								src={`${aboutUs[0]?.image}`}
 								width={1920}
 								height={1080}
-								alt='main'
+								alt='Tatra Capital Group'
 								className='w-full h-full rounded-2xl absolute z-10 object-cover'
 							/>
 
@@ -57,7 +57,7 @@ export default function AboutUs() {
 								src={`${aboutUs[0]?.image}`}
 								width={1920}
 								height={1080}
-								alt='main'
+								alt='Tatra Capital Group'
 								className='w-full h-full rounded-2xl blur-md object-cover'
 							/>
 						</div>

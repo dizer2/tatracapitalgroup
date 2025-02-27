@@ -56,7 +56,7 @@ export default function MobilePhone() {
 						width={60}
 						height={50}
 						src={mainInfo[0]?.logo}
-						alt='logo'
+						alt='Logo Tatra Capital Group'
 						className='w-14 lg:w-16'
 					/>
 					)}

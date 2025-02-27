@@ -40,7 +40,7 @@ export default function CareerPosts() {
 					width={1920}
 					height={1080}
 					src={'/images/assets/career/post/bg.svg'}
-					alt='career'
+					alt='tatracapitalgroup'
 					className='absolute top-0 left-0 w-full h-full object-cover -z-10'
 				/>
 				<h3 className='font-bebas lg:text-8xl text-6xl text-white'>
@@ -65,7 +65,7 @@ export default function CareerPosts() {
 							src={'/images/assets/career/post/map.svg'}
 							width={24}
 							height={24}
-							alt='map'
+							alt='tatracapitalgroup'
 						/>
 						{translations[0]?.location}
 					</Button>
@@ -78,7 +78,7 @@ export default function CareerPosts() {
 							src={'/images/assets/career/post/work.svg'}
 							width={24}
 							height={24}
-							alt='map'
+							alt='tatracapitalgroup'
 						/>
 						{translations[0]?.workType}
 					</Button>
@@ -91,7 +91,7 @@ export default function CareerPosts() {
 							src={'/images/assets/career/post/money.svg'}
 							width={24}
 							height={24}
-							alt='map'
+							alt='tatracapitalgroup'
 						/>
 						{translations[0]?.money}
 					</Button>
@@ -137,7 +137,7 @@ export default function CareerPosts() {
 								src={'/images/assets/career/post/RequirementsIcon.svg'}
 								width={24}
 								height={24}
-								alt='check'
+								alt='tatracapitalgroup'
 								className='mt-1'
 							/>
 							<p className='md:text-2xl text-lg'>
@@ -161,7 +161,7 @@ export default function CareerPosts() {
 								src={'/images/assets/career/post/ResponsibilitiesIcon.svg'}
 								width={24}
 								height={24}
-								alt='check'
+								alt='tatracapitalgroup'
 								className='mt-1'
 							/>
 							<p className='md:text-2xl text-lg'>

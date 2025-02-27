@@ -48,7 +48,7 @@ export default function Home() {
 						width={1200}
 						height={600}
 						src={'/images/assets/landing/home/clouds.png'}
-						alt='clouds'
+						alt='Tatra Capital Group'
 						draggable='false'
 					/>
 				</Parallax>
@@ -60,7 +60,7 @@ export default function Home() {
 						width={800}
 						height={400}
 						src={'/images/assets/landing/home/clouds2.png'}
-						alt='clouds'
+						alt='Tatra Capital Group'
 						className='absolute z-0 right-0 md:w-2/3 lg:translate-y-[5%] translate-y-[-35%] select-none'
 						draggable='false'
 					/>

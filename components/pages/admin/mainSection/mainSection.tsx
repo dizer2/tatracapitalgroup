@@ -127,7 +127,7 @@ export default function MainSection() {
                     src={updateImage}
                     width={96}
                     height={96}
-                    alt='Company Logo'
+                    alt='Tatracapitalgroup'
                     className='w-20 h-20'
                   />
                 </div>
@@ -145,7 +145,7 @@ export default function MainSection() {
                   width={35}
                   height={35}
                   src={'/images/assets/landing/socials/gmail.svg'}
-                  alt='gmail'
+                  alt='Tatra Capital Group'
                 />
                 <p>Email</p>
               </div>
@@ -164,7 +164,7 @@ export default function MainSection() {
                   height={35}
                   className='cursor-pointer'
                   src={'/images/assets/landing/socials/phone.svg'}
-                  alt='phone'
+                  alt='Tatra Capital Group'
                 />
                 <p>Phone</p>
               </div>

@@ -35,7 +35,7 @@ export default function LanguageSelect() {
             src={selectedLanguage === 'en' ? LANGUAGES.en : LANGUAGES.sk}
             width={24}
             height={24}
-            alt="flag"
+            alt='Tatra Capital Group'
           />
         </SelectTrigger>
         <SelectContent>
@@ -44,7 +44,7 @@ export default function LanguageSelect() {
               .filter(([key]) => key !== selectedLanguage)
               .map(([key, src]) => (
                 <SelectItem key={key} value={key}>
-                  <Image src={src} width={24} height={24} alt="flag" />
+                  <Image src={src} width={24} height={24} alt='Tatra Capital Group' />
                 </SelectItem>
               ))}
           </SelectGroup>

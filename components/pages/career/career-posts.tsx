@@ -80,7 +80,7 @@ export default function CareerPosts() {
         width={1920}
         height={1080}
         src={'/images/assets/career/bg.svg'}
-        alt='career'
+        alt='Tatra Capital Group'
         className='absolute bottom-0 left-0 w-full lg:h-auto h-[600px] object-cover -z-10 translate-y-10'
       />
     </div>

@@ -21,7 +21,7 @@ export default function Socials() {
 					width={35}	
 					height={35}
 					src={social.icon}
-					alt='X'
+				alt='Tatra Capital Group'
 				/>
 			</Link>
 			))}
@@ -31,7 +31,7 @@ export default function Socials() {
 					width={35}
 					height={35}
 					src={'/images/assets/landing/socials/gmail.svg'}
-					alt='gmail'
+					alt='Tatra Capital Group'
 				/>
 			</a>
 
@@ -41,7 +41,7 @@ export default function Socials() {
 					height={35}
 					className='cursor-pointer'
 					src={'/images/assets/landing/socials/phone.svg'}
-					alt='phone'
+					alt='Tatra Capital Group'
 				/>
 			</a>
 			</>

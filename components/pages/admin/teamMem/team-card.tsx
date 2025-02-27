@@ -121,7 +121,7 @@ export default function TeamCard({
         src={newImage}
         width={64}
         height={64}
-        alt='Profile'
+        alt='Tatra Capital Group'
         className='rounded-full'
       />
       {newName}

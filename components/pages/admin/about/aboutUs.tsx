@@ -120,7 +120,7 @@ export default function AboutUs() {
 										src={updateImage}
 										width={48}
 										height={48}
-										alt='Icon Team'
+										alt='tatracapitalgroup'
 										className='w-full h-full object-cover rounded-xl'
 									/>
 								</div>

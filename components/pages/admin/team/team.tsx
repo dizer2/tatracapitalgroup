@@ -113,7 +113,7 @@ export default function Team() {
               </div>
               {newImage && (
                 <div className='w-24 h-24 bg-white rounded-full flex items-center justify-center'>
-                <Image src={newImage} width={48} height={48} alt='Icon Team' />
+                <Image src={newImage} width={48} height={48} alt='Tatra Capital Group' />
                 </div>
               )}
               </div>
